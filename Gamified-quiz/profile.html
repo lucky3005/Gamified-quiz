@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        /* General styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .menu-button {
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-button i {
+            margin-right: 10px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .menu ul li {
+            margin: 10px 0;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu ul li a:hover, .menu ul li a.active {
+            background-color: #ddd;
+        }
+
+        .menu ul li a i {
+            margin-right: 10px;
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .profile-link img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+            border-radius: 10px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+        }
+
+        .profile-info h2 {
+            margin: 0;
+        }
+
+        .stars {
+            color: #ffcc00;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        .profile-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .edit-profile {
+            display: flex;
+            align-items: center;
+        }
+
+        .edit-profile input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .edit-profile button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quiz-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .play-quiz {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .play-quiz i {
+            margin-right: 10px;
+        }
+
+        .total-quiz {
+            text-align: center;
+        }
+
+        .quiz-count {
+            font-size: 40px;
+            font-weight: bold;
+            color: #6c63ff;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .button-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .button-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .button-item i {
+            font-size: 40px;
+            color: gray;
+        }
+
+        .button-item p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #6c63ff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="menu">
+                <button class="menu-button"><i class="fas fa-bars"></i> Menu</button>
+                <ul>
+                   <li><a href="#" class="active"> <a href="menu.html"><i class="fas fa-home"></i>Dashboard</a></a></li>
+                    <li><a href="#"><i class="fas fa-star"></i> My Course</a></li>
+                    <li><a href="#"><i class="fas fa-trophy"></i> All Course</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Result</a></li>
+                </ul>
+                <hr>
+                <a href="#" class="profile-link">
+                    <img src="images/client.png" alt="Profile Image">
+                    <span>My Profile</span>
+                </a>
+            </div>
+        </aside>
+        <div class="main-content">
+            <div class="profile-header">
+                <img src="images/client.png" alt="Profile Image">
+                <div class="profile-info">
+                    <h2>Radhika</h2>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> radhika@gmail.com</p>
+                        <p><i class="fas fa-phone"></i></p>
+                        <p><i class="fas fa-map-marker-alt"></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <div class="edit-profile">
+                    <input type="text" value="Football">
+                    <button>Edit Profile</button>
+                </div>
+                <div class="quiz-info">
+                    <button class="play-quiz"><i class="fas fa-play"></i> Play A Quiz</button>
+                    <div class="total-quiz">
+                        <p>Total Played Quiz</p>
+                        <div class="quiz-count">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-grid">
+                <div class="button-item">
+                    <i class="fas fa-futbol"></i>
+                    <p>Football</p>
+                </div>
+                <div class="button-item">
+                    <i class="fas fa-baseball-ball"></i>
+                    <p>Baseball</p>
+                </div>
+                <div class="button-item">
+                    <i class="fas fa-basketball-ball"></i>
+                    <p>Basketball</p>
+                </div>
+                <div class="button-item">
+                    <i class="fas fa-table-tennis"></i>
+                    <p>Tennis</p>
+                </div>
+                <div class="button-item">
+                    <i class="fas fa-syringe"></i>
+                    <p>Immunization</p>
+                </div>
+                <div class="button-item">
+                    <i class="fas fa-boxing-glove"></i>
+                    <p>Boxing</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

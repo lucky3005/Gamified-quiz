@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+    background: linear-gradient(#00d5ff, #63f74f);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-container {
+    max-width: 800px;
+    width: 100%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.quiz-container h1 {
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    color: #333333;
+}
+
+.question-container {
+    margin-bottom: 30px;
+}
+
+#question {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+#options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#options li {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+#options li label {
+    cursor: pointer;
+    font-size: 1.2em;
+    display: block;
+    padding: 15px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#options li label:hover {
+    background: #e0e0e0;
+}
+
+#options li.correct label {
+    background: #d4edda;
+    border: 2px solid #c3e6cb;
+}
+
+#options li.incorrect label {
+    background: #f8d7da;
+    border: 2px solid #f5c6cb;
+}
+
+#options li input {
+    display: none;
+}
+
+#submit {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background 0.3s ease;
+}
+
+#submit:hover {
+    background-color: #3e8e41;
+}
+
+#result {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 30px;
+    color: #333333;
+}
+
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Quiz</h1>
+        <div class="question-container">
+            <p id="question"></p>
+            <ul id="options">
+                <!-- options will be generated dynamically -->
+            </ul>
+        </div>
+        <button id="submit">Submit</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        const quizData = [
+    {
+        question: "What is the term for a score of zero in tennis?",
+        options: ["Null", "Zero", "Love", "Blank"],
+        correct: 2
+    },
+    {
+        question: "Who holds the record for the most Grand Slam titles in men’s singles as of 2023?",
+        options: ["Roger Federer", "Rafael Nadal", "Novak Djokovic", "Pete Sampras"],
+        correct: 2
+    },
+    {
+        question: "What is the name of the prestigious tennis tournament held annually in London? ",
+        options: ["The French Open", "The US Open", "The Australian Open", "Wimbledon"],
+        correct: 1
+    },
+	{
+        question: "Which surface is the French Open played on?",
+        options: ["Grass", "Clay", "Hard", "Carpet"],
+        correct: 1
+    },
+	{
+        question: "What is the maximum number of sets played in a men's Grand Slam match?",
+        options: ["Three", "Four", "Five", "Six"],
+        correct: 2
+    },
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuestion() {
+    document.getElementById("question").innerHTML = quizData[currentQuestion].question;
+    const options = document.getElementById("options");
+    options.innerHTML = "";
+    quizData[currentQuestion].options.forEach((option, index) => {
+        const li = document.createElement("li");
+        const label = document.createElement("label");
+        const input = document.createElement("input");
+        input.type = "radio";
+        input.name = "option";
+        input.value = index;
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(option));
+        li.appendChild(label);
+        options.appendChild(li);
+    });
+}
+
+function resetOptions() {
+    const options = document.getElementById("options").children;
+    for (let i = 0; i < options.length; i++) {
+        options[i].classList.remove("correct", "incorrect");
+    }
+}
+
+document.getElementById("submit").addEventListener("click", () => {
+    const selectedOption = document.querySelector("input[name='option']:checked");
+    if (selectedOption) {
+        const correctOption = quizData[currentQuestion].correct;
+        const options = document.getElementById("options").children;
+        if (selectedOption.value == correctOption) {
+            score++;
+            options[selectedOption.value].classList.add("correct");
+        } else {
+            options[selectedOption.value].classList.add("incorrect");
+            options[correctOption].classList.add("correct");
+        }
+        currentQuestion++;
+        if (currentQuestion >= quizData.length) {
+            document.getElementById("result").innerHTML = `Your score is ${score} out of ${quizData.length}`;
+            document.getElementById("submit").style.display = 'none';
+        } else {
+            setTimeout(() => {
+                resetOptions();
+                loadQuestion();
+            }, 1500);
+        }
+    } else {
+        alert("Please select an option");
+    }
+});
+
+loadQuestion();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body
+{
+background-image:url('background.jpg');
+}
+#mymenu
+{
+background-color:rgba(0,0,0,0.5); 
+color:white;
+text-align:right;
+}
+#mymenu ul li
+{
+	display:inline-block;
+	padding:20px;
+}
+#mymenu ul li:hover
+{
+display:inline-block;
+padding:20px;
+background:white;
+color:rgb(31, 231, 64);
+}
+.table
+{
+	 margin-top:100px;
+	 background-color:rgba(0,0,0,0.5);
+	 color:white;
+	 box-shadow:15px 15px 15px black;
+}
+.B
+{
+background:linear-gradient(red,black);
+color:white;
+border-radius:50px 0px 50px 0px;
+padding:15px;
+ }
+.B:hover
+{
+background:linear-gradient(black,red);
+color:white;
+border-radius:0px 50px 0px 50px;
+padding:15px;
+}
+.A
+{
+border-radius:20px;
+}

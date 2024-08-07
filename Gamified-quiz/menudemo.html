@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Gamified Quiz</title>
+
+    <!-- Slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- Fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan|Dosis:400,600,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+			width: 100%
+        }
+
+        #mymenu {
+            width: 100%;
+            background-color: #333;
+            padding: 10px 0;
+			text-align:right;
+        }
+
+        #mymenu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        #mymenu li {
+            margin: 0 15px;
+        }
+
+        #mymenu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 14px 20px;
+        }
+
+        #mymenu a:hover {
+            background-color: #575757;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 200px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu-button {
+            margin-bottom: 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #ddd;
+        }
+
+        .sidebar hr {
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        .profile-link {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-link img {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .main-content {
+            margin-left: 220px;
+            padding: 20px;
+            width: calc(100% - 220px);
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .button-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .button-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .button-item i {
+            font-size: 40px;
+            color: gray;
+        }
+
+        .button-item p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #6c63ff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mymenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Contact</a></li>
+            <li><a href="login.html">LogOut</a></li>
+        </ul>
+    </div>
+    <aside class="sidebar">
+        <div class="menu">
+            <button class="menu-button">Menu</button>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="#">My Course</a></li>
+                <li><a href="#">All Course</a></li>
+                <li><a href="#">Result</a></li>
+            </ul>
+            <hr>
+            <a href="#" class="profile-link"><img src="images/client.png" alt="Profile Image"><a href="profile.html"> My Profile</a></a>
+        </div>
+    </aside>
+    <div class="main-content">
+        <div class="button-grid">
+            <div class="button-item">
+                <i class="fas fa-futbol"></i>
+                <a href="profile.html"><p>Football</p></a>
+            </div>
+            <div class="button-item">
+                <i class="fas fa-baseball-ball"></i>
+                <a href="profile.html"><p>Baseball</p></a>
+            </div>
+            <div class="button-item">
+                <i class="fas fa-basketball-ball"></i>
+                <a href="profile.html"><p>Basketball</p></a>
+            </div>
+            <div class="button-item">
+                <i class="fas fa-table-tennis"></i>
+                <a href="profile.html"><p>Tennis</p></a>
+            </div>
+            <div class="button-item">
+                <i class="fas fa-syringe"></i>
+                <a href="profile.html"><p>Immunization</p></a>
+            </div>
+            <div class="button-item">
+                <i class="fas fa-boxing-glove"></i>
+                <a href="profile.html"><p>Boxing</p></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
